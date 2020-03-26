@@ -8,12 +8,11 @@ print ""
 
 fullHash = raw_input("Informe a hash de senha Linux completa: ")
 wordlist = raw_input("Informe a Wordlist: ")
-salt = fullHash[:12]
     
 with open(wordlist, "rU") as infile:
     for line in infile:
         line = line.strip()
-        hashGenerated = crypt.crypt(line,salt)
+        hashGenerated = crypt.crypt(line,fullHash)
         
         if hashGenerated == fullHash:
             print ""
